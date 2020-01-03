@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+{% load static%}
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Get involved</title>
+	<link rel="stylesheet" href="{% static 'css_files/style.css' %}">
+	<link rel="stylesheet" href="{% static 'css_files/link.css' %}">
+	<link rel="stylesheet" href="{% static 'css_files/form.css' %}">
+	<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Fira Sans Extra Condensed' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Nanum Myeongjo' rel='stylesheet' type='text/css'>
+</head>
+<body class="top">
+	<div id="hue2">
+		<header>
+			<div id="container2" class="container">
+					<h1>Get Involved</h1>
+
+					<div class="but-id">
+						<a class="fish" href="home.html">Home</a>
+						<a class="fish" href="donate.html">Donate Blood</a>
+						<a class="fish" href="organization.html">Organization</a>
+						
+						<a class="fish" href="https://bloodbank.ky/">Blood Bank Data</a>
+					</div>
+							<br><br>
+			</div>
+		
+				<br><br>
+				</header>
+		<center>
+			<div class="containerx"><br>
+				<div id = "xt">
+					
+					Please fill up the following form.This will help to protect you and the patient who receives your blood.All the information will be kept confidential.
+					<br><br>
+				<form action="" method="POST">
+					{% csrf_token %}
+				<label for="Full Name"><b>Full Name</b></label>
+			    <input type="text" placeholder="Enter Full Name" name="fullName" required>
+
+			    <label for="Address"><b>Address</b></label>
+			    <input type="text" placeholder="Enter Address" name="address" required>
+
+			    <label for="Date Of Birth"><b>Date of Birth</b></label>
+			    <input type="date" name="bday"><br>
+
+			    <label for="Occupation"><b>Occupation</b></label>
+			    <input type="text" placeholder="Enter Occupation" name="occupation" required>
+
+			    <label for="Phone Number"><b>Phone Number</b></label>
+			    <input type="text" placeholder="Enter Phone Number" name="phoneNumber" required>
+
+			    <label for="Email"><b>Email</b></label>
+			    <input type="text" placeholder="Enter Email" name="email" required>
+
+			    <label for="Gender"><b>Gender</b></label><br>
+			    	<input type="radio" name="gender" value="male" checked> Male
+				 	<input type="radio" name="gender" value="female"> Female
+				  	<input type="radio" name="gender" value="other"> Other<br><br>
+
+				<label for="Blood Group"><b>Choose the blood group</b></label><br>
+			    	<input type="radio" name="blood" value="O" checked> O
+				 	<input type="radio" name="blood" value="A"> A
+				  	<input type="radio" name="blood" value="AB"> AB
+				  	<input type="radio" name="blood" value="B"> B<br><br>
+
+				<label for="Blood Group"><b>Choose the blood group</b></label><br>
+			    	<input type="radio" name="bloodRh" value="+ve" checked> +ve
+				 	<input type="radio" name="bloodRh" value="-ve"> -ve
+				  	<br><br>
+
+				<label for="Donation"><b>Have you donated previously. If yes how many times</b></label><br>
+			    <input type="Number"  name="donation" min="0" required> 
+
+			    <label for="Discomfort"><b>Did you had any discomfort during the donation?</b></label>
+			    <textarea name="opinion" rows="4" cols="50">
+					
+				</textarea>
+
+				<div class="clearfix">
+			      <button type="button" class="apx cancelbtn containerx">Cancel</button>
+			      <button type="submit" class="apx signupbtn containerx">Sign Up</button>
+			    </div>
+			
+ 		</form>
+ 		<br>
+ 		<div id = "xt">
+			If you have any problem regarding the donatation program and organization feel free to contact and mail 
+			<a class="XL" href="mailto:giridip862101@gmail.com"><u>here</u></a>.
+		</div><br>
+ 	</div><br>
+ 	<br><br>
+ 	</center>
+</div>
+</body>
+</html>
