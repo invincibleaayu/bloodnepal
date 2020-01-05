@@ -1,11 +1,22 @@
 from django.shortcuts import render                         #to return html file as response
 from django.http import HttpResponse
-from .models import getInvolved                             #imported the database models
+from .models import getInvolved,Donate                            #imported the database models
 #now we create method for our pipeline/urls here 
 def home(request):
     return render(request,'home.html')                      #the request is used to generate response 
                                                             #which is used in render
-def donate(request):                                        #our url donate/ is request
+def donate(request): 
+    if request.method=='POST':
+        dbList=Donate()                                            #creating instance of the database class getInvolved
+        dbList.name=request.POST.get('fullName')
+        dbList.address=request.POST.get('address')
+        dbList.phoneNo=request.POST.get('phoneNumber')
+        dbList.email=request.POST.get('email')
+        dbList.gender=request.POST.get('gender')
+        dbList.bloodGroup=request.POST.get('blood')
+        dbList.RH_type=request.POST.get('bloodRh')
+        dbList.save()
+        return render(request,'donate.html')                                       #our url donate/ is request
     return render(request,'donate.html')
 
 def organization(request):

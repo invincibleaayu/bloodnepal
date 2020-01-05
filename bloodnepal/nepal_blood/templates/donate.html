@@ -35,19 +35,20 @@
 					To donate the blood you need to fill up the form for official purpose.
 				</div>
 					<br>
-				<form action="/action_page.php">
+				<form action="" method="POST">
+					{%csrf_token%}
 			
 				<label for="Full Name"><b>Full Name</b></label>
-			    <input type="text" placeholder="Enter Full Name" name="Full Name" required>
+			    <input type="text" placeholder="Enter Full Name" name="fullName" required>
 
 			    <label for="Address"><b>Address</b></label>
-			    <input type="text" placeholder="Enter Address" name="Address" required>
+			    <input type="text" placeholder="Enter Address" name="address" required>
 
 			    <label for="Phone Number"><b>Phone Number</b></label>
-			    <input type="text" placeholder="Enter Phone Number" name="Phone Number" required>
+			    <input type="number" placeholder="Enter Phone Number" name="phoneNumber" required>
 
 			    <label for="Email"><b>Email</b></label>
-			    <input type="text" placeholder="Enter Email" name="Email" required>
+			    <input type="text" placeholder="Enter Email" name="email" required>
 
 			    <label for="Gender"><b>Gender</b></label><br>
 			    	<input type="radio" name="gender" value="male" checked> Male
@@ -61,8 +62,8 @@
 				  	<input type="radio" name="blood" value="B"> B<br><br>
 
 				<label for="Blood Group"><b>Choose the blood group</b></label><br>
-			    	<input type="radio" name="blood2" value="+ve" checked> +ve
-				 	<input type="radio" name="blood2" value="-ve"> -ve
+			    	<input type="radio" name="bloodRh" value="+ve" checked> +ve
+				 	<input type="radio" name="bloodRh" value="-ve"> -ve
 				  	<br><br>
 
 				<div class="clearfix">
