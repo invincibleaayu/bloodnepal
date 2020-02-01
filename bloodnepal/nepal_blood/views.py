@@ -1,6 +1,7 @@
 from django.shortcuts import render                         #to return html file as response
 from django.http import HttpResponse
-from .models import getInvolved,Donate                            #imported the database models
+from .models import getInvolved,Donate,app
+from django.views.generic import TemplateView                            #imported the database models
 #now we create method for our pipeline/urls here 
 def home(request):
     return render(request,'home.html')                      #the request is used to generate response 
@@ -49,3 +50,11 @@ def carrer_with_us(request):
 
 def joinhands(request):
     return render(request,'joinhands.html')
+
+class chartView(TemplateView):
+    template_name = 'chart.html'
+
+    def get_context_data(self, **kwargs):
+        context  = super().get_context_data(**kwargs)
+        context["qs"]= app.objects.all()
+        return context

@@ -1,0 +1,122 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- semantic UI -->
+    <link rel="stylesheet" type='text/css' href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.min.css">
+    <!--Chart js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous" />
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+	<title>Chart</title>
+
+	<link rel="stylesheet" href="{% static 'css_files/style.css' %}">
+	<link rel="stylesheet" href="{% static 'css_files/link.css' %}">
+	<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Fira Sans Extra Condensed' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Nanum Myeongjo' rel='stylesheet' type='text/css'>
+</head>
+</head>
+<body>
+	<header class ="header">
+			<div class="container">
+						<h1>BloodNepal</h1>
+						<span>"A pint can save many lives"</span>
+			</div>
+
+			<div class="but-id">
+				<a class="fish" href="donate.html">Donate Blood</a>
+				<a class="fish" href="organization.html">Organization</a>
+				<a class="fish" href="getinvolved.html">Get Involved</a>
+				<a class="fish" href="https://bloodbank.ky/">Blood Bank Data</a>
+			</div>	
+	</header><br><br>
+<script>
+    $(document).ready(function(){
+        var ctx = document.getElementById('myChart').getContext('2d');
+
+        //
+        Chart.defaults.global.defaultFontFamily='Montserrat';
+        Chart.defaults.global.defaultFontSize=18;
+
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [{% for item in qs %}'{{item.name}}',{% endfor %}],
+                datasets: [{
+                    label: 'o positive',
+                    data: [{% for item in qs %}'{{item.op}}',{% endfor %}],
+                    borderColor: [{% for item in qs %} 'rgba(255, 0, 0, 0.9)',{% endfor %}],
+                    borderWidth: 2,
+                    fill: false
+                },{
+                label: 'o negative',
+                    data: [{% for item in qs %}'{{item.on}}',{% endfor %}],
+                    borderColor: [{% for item in qs %} 'rgba(0, 255, 0, 0.9)',{% endfor %}],
+                    borderWidth: 2,
+                    fill: false
+                },{
+                label: 'a positive',
+                    data: [{% for item in qs %}'{{item.ap}}',{% endfor %}],
+                    borderColor: [{% for item in qs %} 'rgba(0, 0, 255, 0.9)',{% endfor %}],
+                    borderWidth: 2,
+                    fill: false
+                },{
+                label: 'a negative',
+                    data: [{% for item in qs %}'{{item.an}}',{% endfor %}],
+                    borderColor: [{% for item in qs %} 'rgba(255, 128, 0, 0.9)',{% endfor %}],
+                    borderWidth: 2,
+                    fill: false
+                },{
+                label: 'b positive',
+                    data: [{% for item in qs %}'{{item.bp}}',{% endfor %}],
+                    borderColor: [{% for item in qs %} 'rgba(255, 255, 0, 0.9)',{% endfor %}],
+                    borderWidth: 2,
+                    fill: false
+                },{
+                label: 'b negative',
+                    data: [{% for item in qs %}'{{item.bn}}',{% endfor %}],
+                    borderColor: [{% for item in qs %} 'rgba(255, 0, 127, 0.9)',{% endfor %}],
+                    borderWidth: 2,
+                    fill: false
+                },{
+                label: 'ab positive',
+                    data: [{% for item in qs %}'{{item.abp}}',{% endfor %}],
+                    borderColor: [{% for item in qs %} 'rgba(127, 255, 255, 0.9)',{% endfor %}],
+                    borderWidth: 2,
+                    fill: false
+                },{
+                label: 'ab negative',
+                    data: [{% for item in qs %}'{{item.abn}}',{% endfor %}],
+                    borderColor: [{% for item in qs %} 'rgba(96, 96, 127, 0.9)',{% endfor %}],
+                    borderWidth: 2,
+                    fill: false
+                }
+                ]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    })
+</script>
+<div class="title">
+        Data Of <h class = "h-title">Blood</h> Banks Of Nepal<hr class="title-hr">
+    </div>
+<div class="conty">
+    <canvas id="myChart"></canvas>
+</div>
+</body>
+</html>

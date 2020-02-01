@@ -55,7 +55,7 @@ ROOT_URLCONF = 'bloodnepal.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [r'C:\Users\Dell\Desktop\updated_sem_project\bloodnepal\nepal_blood\templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -78,10 +78,10 @@ WSGI_APPLICATION = 'bloodnepal.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME':'getinvolved',
+        'NAME':'testdatabase',
         'USER':'root',
-        'PASSWORD':'',
-        'HOST':'localhost',
+        'PASSWORD':'Rampagg3',
+        'HOST':'127.0.0.1',
         'PORT':'3306',
 
     },

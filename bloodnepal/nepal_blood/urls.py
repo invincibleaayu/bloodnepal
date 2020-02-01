@@ -28,5 +28,6 @@ urlpatterns = [
     re_path(r'about.html/$',views.about,name="AboutUspage"),
     re_path(r'carrerwithus.html/$',views.carrer_with_us,name="CarrerWiths"),
     re_path(r'joinhands.html/$',views.joinhands,name="JoinHands"),
+    re_path(r'chart.html/$',views.chartView.as_view(),name="Charts"),
 ] 
 urlpatterns += staticfiles_urlpatterns()
