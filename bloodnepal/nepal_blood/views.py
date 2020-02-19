@@ -2,6 +2,7 @@ from django.shortcuts import render                         #to return html file
 from django.http import HttpResponse
 from .models import getInvolved,Donate,app
 from django.views.generic import TemplateView                            #imported the database models
+import json,googlemaps,requests
 #now we create method for our pipeline/urls here 
 def home(request):
     return render(request,'home.html')                      #the request is used to generate response 
@@ -53,8 +54,39 @@ def joinhands(request):
 
 class chartView(TemplateView):
     template_name = 'chart.html'
-
     def get_context_data(self, **kwargs):
         context  = super().get_context_data(**kwargs)
-        context["qs"]= app.objects.all()
+        #code for distance and time using matrix api
+        self.res=requests.get('https://ipinfo.io/')
+        self.data=self.res.json()
+        self.current_loc=self.data['city']
+        gmaps = googlemaps.Client(key='AIzaSyDELNfhc23-e1Ze-kmGlGPz_AkfFYkfJ_w') 
+        my_dist = gmaps.distance_matrix(self.current_loc,'bhaktapur')['rows'][0]['elements'][0] 
+        # Printing the result 
+        #the variable name describes the distance and time for that bloodbank eg:-redcross,whitecross etc.
+        redcross={
+        'distance':my_dist['distance']['text'],
+        'duration':my_dist['duration']['text']
+        }
+        my_dist = gmaps.distance_matrix(self.current_loc,'lalitpur')['rows'][0]['elements'][0] 
+        whitecross={
+        'distance':my_dist['distance']['text'],
+        'duration':my_dist['duration']['text']
+        }    
+        my_dist = gmaps.distance_matrix(self.current_loc,'jorpati')['rows'][0]['elements'][0]     
+        greencross={
+        'distance':my_dist['distance']['text'],
+        'duration':my_dist['duration']['text']
+        }      
+        my_dist = gmaps.distance_matrix(self.current_loc,'maharajgunj')['rows'][0]['elements'][0] 
+        yellowcross={
+        'distance':my_dist['distance']['text'],
+        'duration':my_dist['duration']['text']
+        }
+        dist_list=[redcross,whitecross,greencross,yellowcross]
+        context={
+            "qs": app.objects.all(),
+            "dist_list": dist_list,
+        }
+        #the increment in for loop is done using mathfilter module 
         return context

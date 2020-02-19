@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'nepal_blood',
+    'mathfilters',  #used to do mathemathical things in django templete
 ]
 
 MIDDLEWARE = [
@@ -78,11 +79,13 @@ WSGI_APPLICATION = 'bloodnepal.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME':'testdatabase',
+        'NAME':'getinvolved',
         'USER':'root',
-        'PASSWORD':'Rampagg3',
-        'HOST':'127.0.0.1',
+        'PASSWORD':'',
+        'HOST':'localhost',
         'PORT':'3306',
+
+
 
     },
 }

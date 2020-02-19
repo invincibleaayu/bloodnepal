@@ -1,5 +1,6 @@
 {% load static %}
 {% load i18n %}
+{% load mathfilters %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -163,7 +164,7 @@
                             },
                              scaleLabel: {
                                 display: true,
-                                labelString: 'Liters'
+                                labelString: 'Pints'
                               }
                         }]
                     }
@@ -182,20 +183,65 @@
         Data Of <h class = "h-title">Blood</h> Banks Of Nepal<hr class="title-hr">
     </div>
 {% for items in qs %}
-<div class="conty">
-    <canvas class="myChart"></canvas>
 
-</div><br><br>
-<div align="center">
-    <table>
-        <tr>
-            <th>{{items.name}}</th>
-            <th>distance</th>
-        </tr>
-    </table>
-</div>
+            {%if items.name == 'Nepal Red Cross' %}
+                <div class="conty">
+                <canvas class="myChart"></canvas>
+                </div><br><br>
+                <div align="center">
+                <table>
+                <tr>
+                <th>{{items.name}}</th>
+                <th>{{dist_list.0.distance}}</th>
+                <th>{{dist_list.0.duration}}</th>
+                </tr>
+                </table>
+                </div>
+            {%elif items.name == 'Nepal White Cross' %}
+                <div class="conty">
+                <canvas class="myChart"></canvas>
+                </div><br><br>
+                <div align="center">
+                <table>
+                <tr>
+                <th>{{items.name}}</th>
+                <th>{{dist_list.1.distance}}</th>
+                <th>{{dist_list.1.duration}}</th>
+                </tr>
+                </table>
+                </div>
+            {%elif items.name == 'Nepal Green Cross' %}
+                <div class="conty">
+                <canvas class="myChart"></canvas>
+                </div><br><br>
+                <div align="center">
+                <table>
+                <tr>
+                <th>{{items.name}}</th>
+                <th>{{dist_list.2.distance}}</th>
+                <th>{{dist_list.2.duration}}</th>
+                </tr>
+                </table>
+                </div>
+            {%else%}
+                <div class="conty">
+                <canvas class="myChart"></canvas>
+                </div><br><br>
+                <div align="center">
+                <table>
+                <tr>
+                <th>{{items.name}}</th>
+                <th>{{dist_list.3.distance}}</th>
+                <th>{{dist_list.4.duration}}</th>
+                </tr>
+                </table>
+                </div>
 
+
+{% endif %}
 {% endfor %}
+
+
 <br><br>
 
 <div class="conc">
