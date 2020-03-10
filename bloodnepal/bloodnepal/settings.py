@@ -79,9 +79,9 @@ WSGI_APPLICATION = 'bloodnepal.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME':'getinvolved',
+        'NAME':'saugat',
         'USER':'root',
-        'PASSWORD':'',
+        'PASSWORD':'root',
         'HOST':'localhost',
         'PORT':'3306',
 

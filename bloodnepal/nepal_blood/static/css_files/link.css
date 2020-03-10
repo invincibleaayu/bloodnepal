@@ -73,10 +73,20 @@ a.XL:hover, a.XL:active {
 }
 
 .dropbtn {
-  background-color: #696969;
+  background-color: rgba(142, 11, 11, 1);
+  color: white;
   padding: 16px;
   font-size: 16px;
   border: none;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 30px;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color:  #808080;
+  color:white;
+  border-radius: 30px;
 }
 
 .dropdown {
@@ -89,8 +99,10 @@ a.XL:hover, a.XL:active {
   position: absolute;
   background-color: #f1f1f1;
   min-width: 160px;
+  overflow: auto;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .dropdown-content a {
@@ -98,10 +110,9 @@ a.XL:hover, a.XL:active {
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown a:hover {background-color: #ddd;}
 
-.dropdown:hover .dropdown-content {display: block;}
-
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
+.show {display: block;}

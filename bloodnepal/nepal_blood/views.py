@@ -60,7 +60,7 @@ class chartView(TemplateView):
         self.res=requests.get('https://ipinfo.io/')
         self.data=self.res.json()
         self.current_loc=self.data['city']
-        gmaps = googlemaps.Client(key='') 
+        gmaps = googlemaps.Client(key='AIzaSyBUS1ft3fLL1uEUlXr3QDzYr28CaYyjSgw') 
         my_dist = gmaps.distance_matrix(self.current_loc,'bhaktapur')['rows'][0]['elements'][0] 
         # Printing the result 
         #the variable name describes the distance and time for that bloodbank eg:-redcross,whitecross etc.
