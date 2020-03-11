@@ -5,7 +5,10 @@ from django.views.generic import TemplateView                            #import
 import json,googlemaps,requests
 #now we create method for our pipeline/urls here 
 def home(request):
-    return render(request,'home.html')                      #the request is used to generate response 
+    return render(request,'home.html')      
+
+def req(request):
+    return render(request,'requestBlood.html')                  #the request is used to generate response 
                                                             #which is used in render
 def donate(request): 
     if request.method=='POST':

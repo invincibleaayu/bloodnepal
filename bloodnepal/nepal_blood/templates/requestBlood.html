@@ -16,7 +16,7 @@
 	<div id="hue2">
 		<header>
 			<div id="container2" class="container">
-					<h1>Get Involved</h1>
+					<h1>Request Blood</h1>
 
 					<div class="but-id">
 						<a class="fish" href="home.html">Home</a>
@@ -34,7 +34,7 @@
 			<div class="containerx"><br>
 				<div id = "xt">
 					
-					Please fill up the following form.This will help to protect you and the patient who receives your blood.All the information will be kept confidential.
+					Please fill up the following form.
 					<br><br>
 				<form action="" method="POST">
 					{% csrf_token %}
@@ -44,22 +44,11 @@
 			    <label for="Address"><b>Address</b></label>
 			    <input type="text" placeholder="Enter Address" name="address" required>
 
-			    <label for="Date Of Birth"><b>Date of Birth</b></label>
-			    <input type="date" name="bday"><br>
-
-			    <label for="Occupation"><b>Occupation</b></label>
-			    <input type="text" placeholder="Enter Occupation" name="occupation" required>
-
 			    <label for="Phone Number"><b>Phone Number</b></label>
 			    <input type="number" placeholder="Enter Phone Number" name="phoneNumber" required>
 
 			    <label for="Email"><b>Email</b></label>
 			    <input type="text" placeholder="Enter Email" name="email" required>
-
-			    <label for="Gender"><b>Gender</b></label><br>
-			    	<input type="radio" name="gender" value="male" checked> Male
-				 	<input type="radio" name="gender" value="female"> Female
-				  	<input type="radio" name="gender" value="other"> Other<br><br>
 
 				<label for="Blood Group"><b>Choose the blood group</b></label><br>
 			    	<input type="radio" name="blood" value="O" checked> O
@@ -72,17 +61,8 @@
 				 	<input type="radio" name="bloodRh" value="-ve"> -ve
 				  	<br><br>
 
-				<label for="Donation"><b>Have you donated previously. If yes how many times</b></label><br>
-			    <input type="Number"  name="donation" min="0" required> 
-
-			    <label for="Discomfort"><b>Did you had any discomfort during the donation?</b></label>
-			    <textarea name="opinion" rows="4" cols="50">
-					
-				</textarea>
-
 				<div class="clearfix">
-			      <button type="button" class="apx cancelbtn containerx">Cancel</button>
-			      <button type="submit" class="apx signupbtn containerx">Sign Up</button>
+			      <button type="submit" class="apx signupbtn containerx">Request</button>
 			    </div>
 			
  		</form>
