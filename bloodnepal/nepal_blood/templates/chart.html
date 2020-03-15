@@ -182,22 +182,66 @@ window.onclick = function(event) {
     <a class="tool" href= "requestBlood.html">Request blood</a>
 </div>
 </center>
+
 {% for items in qs %}
-<div class="conty">
-    <canvas class="myChart"></canvas>
 
-</div><br><br>
-<div align="center">
-    <table>
-        <tr>
-            <th>{{items.name}}</th>
-            <th>{{dist_list.0.distance}}</th>
-            <th>{{dist_list.0.duration}}</th>
-        </tr>
-    </table>
-</div>
+            {%if items.name == 'Nepal Red Cross' %}
+                <div class="conty">
+                <canvas class="myChart"></canvas>
+                </div><br><br>
+                <div align="center">
+                <table>
+                <tr>
+                <th>{{items.name}}</th>
+                <th>{{dist_list.0.distance}}</th>
+                <th>{{dist_list.0.duration}}</th>
+                </tr>
+                </table>
+                </div>
+            {%elif items.name == 'Nepal White Cross' %}
+                <div class="conty">
+                <canvas class="myChart"></canvas>
+                </div><br><br>
+                <div align="center">
+                <table>
+                <tr>
+                <th>{{items.name}}</th>
+                <th>{{dist_list.1.distance}}</th>
+                <th>{{dist_list.1.duration}}</th>
+                </tr>
+                </table>
+                </div>
+            {%elif items.name == 'Nepal Green Cross' %}
+                <div class="conty">
+                <canvas class="myChart"></canvas>
+                </div><br><br>
+                <div align="center">
+                <table>
+                <tr>
+                <th>{{items.name}}</th>
+                <th>{{dist_list.2.distance}}</th>
+                <th>{{dist_list.2.duration}}</th>
+                </tr>
+                </table>
+                </div>
+            {%else%}
+                <div class="conty">
+                <canvas class="myChart"></canvas>
+                </div><br><br>
+                <div align="center">
+                <table>
+                <tr>
+                <th>{{items.name}}</th>
+                <th>{{dist_list.3.distance}}</th>
+                <th>{{dist_list.3.duration}}</th>
+                </tr>
+                </table>
+                </div>
 
+
+{% endif %}
 {% endfor %}
+
 <br>
 
 <br>
