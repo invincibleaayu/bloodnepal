@@ -1,33 +1,14 @@
+{% extends 'Base.html' %}
+
 {% load static %}
 {% load i18n %}
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<head>
 
-	<meta charset="utf-8">
-	<title>Bloodnepal</title>
-	<link rel="stylesheet" href="{% static 'css_files/style.css' %}">
-	<link rel="stylesheet" href="{% static 'css_files/link.css' %}">
-	<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Fira Sans Extra Condensed' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Nanum Myeongjo' rel='stylesheet' type='text/css'>
-</head>
-<body>
-	<header class ="header">
-			<div class="container">
-						<h1>BloodNepal</h1>
-						<span>"A pint can save many lives"</span>
-			</div>
 
-			<div class="but-id">
-				<a class="fish" href="donate.html">Donate Blood</a>
-				<a class="fish" href="organization.html">Organization</a>
-				<a class="fish" href="getinvolved.html">Get Involved</a>
-				<a class="fish" href="chart.html">Blood Bank Data</a>
-			</div>	
-	</header><br><br>
+{% block title %}
+Bloodnepal
+{% endblock %}
 
+{% block body %}
 	<div class="title">
 		Welcome to Nepal <h class = "h-title">Blood</h><hr class="title-hr">
 	</div>
@@ -77,18 +58,4 @@
 		<i>"Give blood save life "</i>
 		<br><br>
 	</div>
-		<div class="conc">
-			
-			<div class="title2">
-				Contact Us
-			</div>
-
-			<div class="desp3">
-				<a href="mailto:giridip862101@gmail.com"><img src="{% static 'image/mail.png' %}" alt="Mail Us"></a>
-				<img src="{% static 'image/phone.png' %}" alt="Call Us">
-				<img src="{% static 'image/tweet.png' %}" alt="Tweet Us">
-			</div>
-		</div>
-
-</body>
-</html>
+{% endblock %}

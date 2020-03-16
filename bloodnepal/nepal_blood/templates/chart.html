@@ -1,44 +1,25 @@
-{% load static %}
-{% load i18n %}
-{% load mathfilters %}
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% extends 'base.html' %}
+
+{% block scripts %}
     <!-- semantic UI -->
     <link rel="stylesheet" type='text/css' href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.min.css">
     <!--Chart js-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+{% endblock %}
 
-	<title>Chart</title>
+{% block title %}
+Blood bank data
+{% endblock %}
 
-	<link rel="stylesheet" href="{% static 'css_files/style.css' %}">
-	<link rel="stylesheet" href="{% static 'css_files/link.css' %}">
-	<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Fira Sans Extra Condensed' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Nanum Myeongjo' rel='stylesheet' type='text/css'>
-</head>
-</head>
-<body>
-	<header class ="header">
-			<div class="container">
-						<h1>BloodNepal</h1>
-						<span>"A pint can save many lives"</span>
-			</div>
+{% block heading %}
+Blood Bank Data
+{% endblock %}
 
-			<div class="but-id">
-				<a class="fish" href="donate.html">Donate Blood</a>
-				<a class="fish" href="organization.html">Organization</a>
-				<a class="fish" href="getinvolved.html">Get Involved</a>
-				<a class="fish" href="https://bloodbank.ky/">Blood Bank Data</a>
-			</div>	
-	</header><br><br>
-<script>
+{% block body %}
+
+    <script>
     window.onload = function() {
         var charts = document.getElementsByClassName("myChart");
 
@@ -85,90 +66,87 @@
                     datasets: [{
                         label: 'o positive',
                         data: [listOp[i]],
-                        backgroundColor: [{% for item in qs %} 'rgba(255, 0, 0, 0.9)',{% endfor %}],
+                        backgroundColor: ['rgba(142, 11, 11, 1)'],
                         borderWidth: 2,
                         fill: false
                     },{
                     label: 'o negative',
                         data: [listOn[i]],
-                        backgroundColor: [{% for item in qs %} 'rgba(0, 255, 0, 0.9)',{% endfor %}],
+                        backgroundColor: ['rgba(142, 11, 11, 1)'],
                         borderWidth: 2,
                         fill: false
                     },{
                     label: 'a positive',
                         data: [listAp[i]],
-                        backgroundColor: [{% for item in qs %} 'rgba(0, 0, 255, 0.9)',{% endfor %}],
+                        backgroundColor: ['rgba(142, 11, 11, 1)'],
                         borderWidth: 2,
                         fill: false
                     },{
                     label: 'a negative',
                         data: [listAn[i]],
-                        backgroundColor: [{% for item in qs %} 'rgba(255, 128, 0, 0.9)',{% endfor %}],
+                        backgroundColor: ['rgba(142, 11, 11, 1)'],
                         borderWidth: 2,
                         fill: false
                     },{
                     label: 'b positive',
                         data: [listBp[i]],
-                        backgroundColor: [{% for item in qs %} 'rgba(255, 255, 0, 0.9)',{% endfor %}],
+                        backgroundColor: ['rgba(142, 11, 11, 1)'],
                         borderWidth: 2,
                         fill: false
                     },{
                     label: 'b negative',
                         data: [listBn[i]],
-                        backgroundColor: [{% for item in qs %} 'rgba(255, 0, 127, 0.9)',{% endfor %}],
+                        backgroundColor: ['rgba(142, 11, 11, 1)'],
                         borderWidth: 2,
                         fill: false
                     },{
                     label: 'ab positive',
                         data: [listAbp[i]],
-                        backgroundColor: [{% for item in qs %} 'rgba(127, 255, 255, 0.9)',{% endfor %}],
+                        backgroundColor: ['rgba(142, 11, 11, 1)'],
                         borderWidth: 2,
                         fill: false
                     },{
                     label: 'ab negative',
                         data: [listAbp[i]],
-                        backgroundColor: [{% for item in qs %} 'rgba(96, 96, 127, 0.9)',{% endfor %}],
+                        backgroundColor: ['rgba(142, 11, 11, 1)'],
                         borderWidth: 2,
                         fill: false
                     }]
                 };
 
             var chartOptions =  {
+                responsive:true,
                 "hover": {
-            "animationDuration": 0
+                             "animationDuration": 0
                         },
-             "animation": {
-                    "duration": 1,
-                    "onComplete": function () {
-                        var chartInstance = this.chart,
-                        ctx = chartInstance.ctx;
-
-                        ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
-                        ctx.textAlign = 'center';
-                        ctx.textBaseline = 'bottom';
-
-                        this.data.datasets.forEach(function (dataset, i) {
-                            var meta = chartInstance.controller.getDatasetMeta(i);
-                            meta.data.forEach(function (bar, index) {
-                                var data = dataset.data[index];                            
-                                ctx.fillText(data, bar._model.x, bar._model.y - 5);
-                            });
-                        });
-                    }
+              
+                scales: {
+                    xAxes: [{
+                        display:true,
+                        
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                            max:120,  
+                            mirror:false,
+                        },
+                        display:true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Pints',
+                        },
+                    }]
                 },
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true,
-                                max:120,
-                            },
-                             scaleLabel: {
-                                display: true,
-                                labelString: 'Pints'
-                              }
-                        }]
-                    }
-                };
+                legend: {
+                        display: false,
+                },
+                tooltips: {
+                     enabled: true
+                },
+                maintainAspectRatio: true,
+                responsive: true
+            };
 
             var myChart = new Chart(ctx, {
                 type: 'bar',
@@ -178,10 +156,33 @@
              i = i+1;
     }
 }
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
 </script>
 <div class="title">
         Data Of <h class = "h-title">Blood</h> Banks Of Nepal<hr class="title-hr">
-    </div>
+</div>
+<center>
+<div class="but-id">
+    <a class="tool" href= "requestBlood.html">Request blood</a>
+</div>
+</center>
+
 {% for items in qs %}
 
             {%if items.name == 'Nepal Red Cross' %}
@@ -232,7 +233,7 @@
                 <tr>
                 <th>{{items.name}}</th>
                 <th>{{dist_list.3.distance}}</th>
-                <th>{{dist_list.4.duration}}</th>
+                <th>{{dist_list.3.duration}}</th>
                 </tr>
                 </table>
                 </div>
@@ -241,21 +242,8 @@
 {% endif %}
 {% endfor %}
 
+<br>
 
-<br><br>
+<br>
 
-<div class="conc">
-            
-            <div class="title2">
-                Contact Us
-            </div>
-
-            <div class="desp3">
-                <a href="mailto:giridip862101@gmail.com"><img src="{% static 'image/mail.png' %}" alt="Mail Us"></a>
-                <img src="{% static 'image/phone.png' %}" alt="Call Us">
-                <img src="{% static 'image/tweet.png' %}" alt="Tweet Us">
-            </div>
-</div>
-
-</body>
-</html>
+{% endblock %}

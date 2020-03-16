@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-{%load static%}
-<html lang="en" dir="ltr">
+{% load static%}
+<html>
 <head>
 	<meta charset="utf-8">
-	<title>Bloodnepal</title>
+	<title>Get involved</title>
 	<link rel="stylesheet" href="{% static 'css_files/style.css' %}">
 	<link rel="stylesheet" href="{% static 'css_files/link.css' %}">
 	<link rel="stylesheet" href="{% static 'css_files/form.css' %}">
@@ -16,28 +16,28 @@
 	<div id="hue2">
 		<header>
 			<div id="container2" class="container">
-					<h1>Donate blood</h1>
+					<h1>Request Blood</h1>
 
 					<div class="but-id">
 						<a class="fish" href="home.html">Home</a>
+						<a class="fish" href="donate.html">Donate Blood</a>
 						<a class="fish" href="organization.html">Organization</a>
-						<a class="fish" href="getinvolved.html">Get Involved</a>
-						<a class="fish" href="https://bloodbank.ky/">Blood Bank Data</a>
+						
+						<a class="fish" href="chart.html">Blood Bank Data</a>
 					</div>
 							<br><br>
 			</div>
 		
 				<br><br>
-		</header>
+				</header>
 		<center>
 			<div class="containerx"><br>
 				<div id = "xt">
-					To donate the blood you need to fill up the form for official purpose.
-				</div>
-					<br>
+					
+					Please fill up the following form.
+					<br><br>
 				<form action="" method="POST">
-					{%csrf_token%}
-			
+					{% csrf_token %}
 				<label for="Full Name"><b>Full Name</b></label>
 			    <input type="text" placeholder="Enter Full Name" name="fullName" required>
 
@@ -49,11 +49,6 @@
 
 			    <label for="Email"><b>Email</b></label>
 			    <input type="text" placeholder="Enter Email" name="email" required>
-
-			    <label for="Gender"><b>Gender</b></label><br>
-			    	<input type="radio" name="gender" value="male" checked> Male
-				 	<input type="radio" name="gender" value="female"> Female
-				  	<input type="radio" name="gender" value="other"> Other<br><br>
 
 				<label for="Blood Group"><b>Choose the blood group</b></label><br>
 			    	<input type="radio" name="blood" value="O" checked> O
@@ -67,8 +62,7 @@
 				  	<br><br>
 
 				<div class="clearfix">
-			      <button type="button" class="apx cancelbtn containerx">Cancel</button>
-			      <button type="submit" class="apx signupbtn containerx">Sign Up</button>
+			      <button type="submit" class="apx signupbtn containerx">Request</button>
 			    </div>
 			
  		</form>
@@ -82,5 +76,4 @@
  	</center>
 </div>
 </body>
-
 </html>

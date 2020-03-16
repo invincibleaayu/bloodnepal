@@ -1,87 +1,56 @@
-<!DOCTYPE html>
-{%load static%}
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Carrer with us</title>
-	<link rel="stylesheet" href="{% static 'css_files/style.css' %}">
-	<link rel="stylesheet" href="{% static 'css_files/link.css' %}">
-	<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Fira Sans Extra Condensed' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Nanum Myeongjo' rel='stylesheet' type='text/css'>
-</head>
-<body>
-	<header class ="header">
-			<div class="container">
-						<h1>Carrer with us</h1><br>
-			</div>
+{% extends 'base.html' %}
 
-			<div class="but-id">
-				<a class="fish" href="home.html">Home</a>
-				<a class="fish" href="organization.html">Organization</a>
-				<a class="fish" href="donate.html">Donate Blood</a>
-				<a class="fish" href="getinvolved.html">Get Involved</a>
-				<a class="fish" href="chart.html">Blood Bank Data</a>
-			</div>	
-	</header><br><br>
+{% block title %}
+Carrer with us
+{% endblock %}
 
-	<div class="title">
-		Why Give <h class="h-title">Blood</h>
-	</div><br>
+{% block heading %}
+Carrer with us
+{% endblock %}
 
-	<div class="desp">
-		Blood can't be replaced by anything in the world. A single donation can save up to three people's lives. 500 Caymanians will need blood transfusions this year.
-			<br><br>
-		Saving three lives in 15 minutes... how does that sound?
-			<br><br>
-		Registration only takes about 2 minutes. You can also apply to volunteer. Volunteering help you earn certificates. You can also donate to this program. Helping others will help you earn badges. Who knew being a hero was this easy?
-	</div>
-	<br>
+{% block body %}
 
-	<hr class="title-hr">
+    <div class="title">
+        Why Give <h class="h-title">Blood</h>
+    </div><br>
 
-	<div class="title">
-		 How Your<h class="h-title"> Blood</h> is Used
-	</div>
+    <div class="desp">
+        Blood can't be replaced by anything in the world. A single donation can save up to three people's lives. 500 Caymanians will need blood transfusions this year.
+            <br><br>
+        Saving three lives in 15 minutes... how does that sound?
+            <br><br>
+        Registration only takes about 2 minutes. You can also apply to volunteer. Volunteering help you earn certificates. You can also donate to this program. Helping others will help you earn badges. Who knew being a hero was this easy?
+    </div>
+    <br>
 
-		<div class="contx">
-			<div class="oval">
-				<div class="title2">
-					<h class="xyz">70%</h>
-				</div><br>
-				Help Medical Condtions Like Anaemia, Cancer, etc
-			</div>
-			<div class="oval">
-				<div class="title2">
-					<h class="xyz">25%</h>
-				</div><br>
-				 Used in Surgeries
-			</div>
-			<div class="oval">
-				<div class="title2">
-					<h class="xyz">5%</h>
-				</div><br>
-				Treat Blood loss after Childbirth
-			</div>
-		</div>
-	
+    <hr class="title-hr">
 
-	<br>
-	<br>
+    <div class="title">
+         How Your<h class="h-title"> Blood</h> is Used
+    </div>
 
-	<div class="conc">
-			
-			<div class="title2">
-				Contact Us
-			</div>
+        <div class="contx">
+            <div class="oval">
+                <div class="title2">
+                    <h class="xyz">70%</h>
+                </div><br>
+                Help Medical Condtions Like Anaemia, Cancer, etc
+            </div>
+            <div class="oval">
+                <div class="title2">
+                    <h class="xyz">25%</h>
+                </div><br>
+                 Used in Surgeries
+            </div>
+            <div class="oval">
+                <div class="title2">
+                    <h class="xyz">5%</h>
+                </div><br>
+                Treat Blood loss after Childbirth
+            </div>
+        </div>
+    
 
-			<div class="desp3">
-				<a href="mailto:giridip862101@gmail.com"><img src="{% static 'image/mail.png' %}" alt="Mail Us"></a>
-				<img src="{% static 'image/phone.png' %}" alt="Call Us">
-				<img src="{% static 'image/tweet.png' %}" alt="Tweet Us">
-			</div>
-	</div>
-
-</body>
-</html>
+    <br>
+    <br>
+{% endblock %}

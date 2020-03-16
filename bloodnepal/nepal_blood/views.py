@@ -5,7 +5,10 @@ from django.views.generic import TemplateView                            #import
 import json,googlemaps,requests
 #now we create method for our pipeline/urls here 
 def home(request):
-    return render(request,'home.html')                      #the request is used to generate response 
+    return render(request,'home.html')      
+
+def req(request):
+    return render(request,'requestBlood.html')                  #the request is used to generate response 
                                                             #which is used in render
 def donate(request): 
     if request.method=='POST':
@@ -60,7 +63,7 @@ class chartView(TemplateView):
         self.res=requests.get('https://ipinfo.io/')
         self.data=self.res.json()
         self.current_loc=self.data['city']
-        gmaps = googlemaps.Client(key='') 
+        gmaps = googlemaps.Client(key='AIzaSyBUS1ft3fLL1uEUlXr3QDzYr28CaYyjSgw') 
         my_dist = gmaps.distance_matrix(self.current_loc,'bhaktapur')['rows'][0]['elements'][0] 
         # Printing the result 
         #the variable name describes the distance and time for that bloodbank eg:-redcross,whitecross etc.
