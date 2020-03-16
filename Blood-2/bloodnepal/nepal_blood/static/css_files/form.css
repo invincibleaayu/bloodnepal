@@ -1,0 +1,166 @@
+* {box-sizing: border-box}
+
+
+input[type=text], input[type=password] , input[type=date] , input[type=number]{
+
+  width: 100%;
+
+  padding: 15px;
+
+  margin: 5px 0 22px 0;
+
+  display: inline-block;
+
+  border: none;
+
+  background: #f1f1f1;
+
+}
+
+
+
+input[type=text]:focus, input[type=password],  input[type=date], input[type=number]:focus {
+
+  background-color: #ddd;
+
+  outline: none;
+
+}
+
+
+
+/* Set a style for all buttons */
+
+button {
+
+  background-color: #4CAF50;
+
+  color: white;
+
+  padding: 14px 20px;
+
+  margin: 8px 0;
+
+  border: none;
+
+  cursor: pointer;
+
+  width: 100%;
+
+  opacity: 0.9;
+
+}
+
+
+
+button:hover {
+
+  opacity:1;
+
+}
+
+
+
+.containerx {
+
+  padding: 10px 30px;
+
+  font-family: 'Fira Sans Extra Condensed', sans-serif;
+
+  letter-spacing: 1px;
+
+  font-size: 20px;
+
+  width :700px;
+
+  background-color: #ffffff;
+
+  border-radius: 20px;
+
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+
+}
+
+
+
+button.apx {
+
+  background-color: #ffffff;
+
+  color: red;
+
+  border: none;
+
+  cursor: pointer;
+
+  opacity: 0.9;
+
+  border-radius: 12px;
+
+
+
+}
+
+
+
+button.apx:hover {
+
+	background-color: #ff3232;
+
+	color : #ffffff;
+
+  opacity:1;
+
+}
+
+
+
+.cancelbtn, .signupbtn {
+
+  float: center;
+
+  width: 20%;
+
+}
+
+
+
+.clearfix::after {
+
+  content: "";
+
+  clear: both;
+
+  display: table;
+
+}
+
+
+
+
+
+textarea{
+
+  width: 100%;
+
+  padding: 15px;
+
+  margin: 5px 0 22px 0;
+
+  display: inline-block;
+
+  border: none;
+
+  background: #f1f1f1;
+
+}
+
+
+
+textarea:focus{
+
+  background-color: #ddd;
+
+  outline: none;
+
+}

@@ -1,0 +1,249 @@
+{% extends 'base.html' %}
+
+{% block scripts %}
+    <!-- semantic UI -->
+    <link rel="stylesheet" type='text/css' href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.min.css">
+    <!--Chart js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+{% endblock %}
+
+{% block title %}
+Blood bank data
+{% endblock %}
+
+{% block heading %}
+Blood Bank Data
+{% endblock %}
+
+{% block body %}
+
+    <script>
+    window.onload = function() {
+        var charts = document.getElementsByClassName("myChart");
+
+        var listOp = [];
+        var listOn = [];
+        var listAp = [];
+        var listAn = [];
+        var listBp = [];
+        var listBn = [];
+        var listAbp = [];
+        var listAbn = [];
+        var nameList = [];
+        {% for item in qs %}
+            var temp = '{{item.op}}';
+            listOp.push(temp);
+            temp = '{{item.name}}'
+            nameList.push(temp);
+            temp = '{{item.on}}'
+            listOn.push(temp);
+            temp = '{{item.ap}}'
+            listAp.push(temp);
+            temp = '{{item.an}}'
+            listAn.push(temp);
+            temp = '{{item.bp}}'
+            listBp.push(temp);
+            temp = '{{item.bn}}'
+            listBn.push(temp);
+            temp = '{{item.abp}}'
+            listAbp.push(temp);
+            temp = '{{item.abn}}'
+            listAbn.push(temp);
+        {% endfor %}
+
+        var i=0;
+        for (chart of charts){
+
+            var ctx = chart.getContext('2d');
+
+            Chart.defaults.global.defaultFontFamily='Montserrat';
+            Chart.defaults.global.defaultFontSize=18;
+
+            var chartData = {
+                    labels: [nameList[i]],
+                    datasets: [{
+                        label: 'o positive',
+                        data: [listOp[i]],
+                        backgroundColor: ['rgba(142, 11, 11, 1)'],
+                        borderWidth: 2,
+                        fill: false
+                    },{
+                    label: 'o negative',
+                        data: [listOn[i]],
+                        backgroundColor: ['rgba(142, 11, 11, 1)'],
+                        borderWidth: 2,
+                        fill: false
+                    },{
+                    label: 'a positive',
+                        data: [listAp[i]],
+                        backgroundColor: ['rgba(142, 11, 11, 1)'],
+                        borderWidth: 2,
+                        fill: false
+                    },{
+                    label: 'a negative',
+                        data: [listAn[i]],
+                        backgroundColor: ['rgba(142, 11, 11, 1)'],
+                        borderWidth: 2,
+                        fill: false
+                    },{
+                    label: 'b positive',
+                        data: [listBp[i]],
+                        backgroundColor: ['rgba(142, 11, 11, 1)'],
+                        borderWidth: 2,
+                        fill: false
+                    },{
+                    label: 'b negative',
+                        data: [listBn[i]],
+                        backgroundColor: ['rgba(142, 11, 11, 1)'],
+                        borderWidth: 2,
+                        fill: false
+                    },{
+                    label: 'ab positive',
+                        data: [listAbp[i]],
+                        backgroundColor: ['rgba(142, 11, 11, 1)'],
+                        borderWidth: 2,
+                        fill: false
+                    },{
+                    label: 'ab negative',
+                        data: [listAbp[i]],
+                        backgroundColor: ['rgba(142, 11, 11, 1)'],
+                        borderWidth: 2,
+                        fill: false
+                    }]
+                };
+
+            var chartOptions =  {
+                responsive:true,
+                "hover": {
+                             "animationDuration": 0
+                        },
+              
+                scales: {
+                    xAxes: [{
+                        display:true,
+                        
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                            max:120,  
+                            mirror:false,
+                        },
+                        display:true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Pints',
+                        },
+                    }]
+                },
+                legend: {
+                        display: false,
+                },
+                tooltips: {
+                     enabled: true
+                },
+                maintainAspectRatio: true,
+                responsive: true
+            };
+
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: chartData,
+                options: chartOptions,
+            });
+             i = i+1;
+    }
+}
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+<div class="title">
+        Data Of <h class = "h-title">Blood</h> Banks Of Nepal<hr class="title-hr">
+</div>
+<center>
+<div class="but-id">
+    <a class="tool" href= "requestBlood.html">Request blood</a>
+</div>
+</center>
+
+{% for items in qs %}
+
+            {%if items.name == 'Nepal Red Cross' %}
+                <div class="conty">
+                <canvas class="myChart"></canvas>
+                </div><br><br>
+                <div align="center">
+                <table>
+                <tr>
+                <th>{{items.name}}</th>
+                <th>{{dist_list.0.distance}}</th>
+                <th>{{dist_list.0.duration}}</th>
+                </tr>
+                </table>
+                </div>
+            {%elif items.name == 'Nepal White Cross' %}
+                <div class="conty">
+                <canvas class="myChart"></canvas>
+                </div><br><br>
+                <div align="center">
+                <table>
+                <tr>
+                <th>{{items.name}}</th>
+                <th>{{dist_list.1.distance}}</th>
+                <th>{{dist_list.1.duration}}</th>
+                </tr>
+                </table>
+                </div>
+            {%elif items.name == 'Nepal Green Cross' %}
+                <div class="conty">
+                <canvas class="myChart"></canvas>
+                </div><br><br>
+                <div align="center">
+                <table>
+                <tr>
+                <th>{{items.name}}</th>
+                <th>{{dist_list.2.distance}}</th>
+                <th>{{dist_list.2.duration}}</th>
+                </tr>
+                </table>
+                </div>
+            {%else%}
+                <div class="conty">
+                <canvas class="myChart"></canvas>
+                </div><br><br>
+                <div align="center">
+                <table>
+                <tr>
+                <th>{{items.name}}</th>
+                <th>{{dist_list.3.distance}}</th>
+                <th>{{dist_list.3.duration}}</th>
+                </tr>
+                </table>
+                </div>
+
+
+{% endif %}
+{% endfor %}
+
+<br>
+
+<br>
+
+{% endblock %}

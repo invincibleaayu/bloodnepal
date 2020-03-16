@@ -1,0 +1,61 @@
+{% extends 'Base.html' %}
+
+{% load static %}
+{% load i18n %}
+
+
+{% block title %}
+Bloodnepal
+{% endblock %}
+
+{% block body %}
+	<div class="title">
+		Welcome to Nepal <h class = "h-title">Blood</h><hr class="title-hr">
+	</div>
+
+	<div class="desp">
+		This website is for gathering the information about the blood in blood banks. Along with that it also include the donor name along with their blood group type.
+	</div>
+
+	<br><br>
+
+	<div class="img-back">
+		<img src="{% static 'image/blood.png' %}" alt="Donate blood" >
+	</div>
+
+	<div class="desp2">
+		<div id="hue">
+			<div class="title2">
+				<p class="bord">Introduction And <h class="h-title">Background</h></p>
+			</div>
+		
+			Blood Transfusion Service of Nepal Red Cross Society was established in the year 1966 i.e. 3 years after the inception of the Society itself. In the initial years the service was made possible through collection of blood from professional donors but since 1982 collection of blood was emphasized from voluntary non remunerated donors only. <br><br>Today, blood is collected mostly from these sectors through routine motivational and collection campaigns but motivated individuals are also significant donors. The blood collection mobile teams routinely visit these institutions in the valley and in the outskirts of Kathmandu Valley to collect blood.
+			<br>
+
+			<div class="but-id2">
+				<a class="tool" href="joinhands.html">Join hand</a>
+				<a class="tool" href="carrerwithus.html">Carrer with us</a>
+				<a class="tool" href="organization.html">Linkup</a>
+			</div>
+		</div>
+
+	</div>
+
+	<div class = "desp4">
+
+		<div class="title">
+			About <h class = "h-title">Us</h><hr class="title-hr">
+		</div>
+
+		We have been working in managing and keeping record of each and every bloodbanks and their amount of along with the bloog group types.It is a continuous process if it is to lead to steady improvement. The quality management system addresses each activity of the blood program defining, controlling and documentary every aspect of an operation.
+		<br><br>
+		Therefore system improvement of technical aspect regarding quality of staff and quality management. Some selected regional centers should be upgraded and with its identification will be upgraded as referral center for neighboring district centers. Therefore, a systematic regular supervision and monitoring program will be developed.
+	</div>
+
+	<div class="desp-quot">
+		<i>"Safe blood donation is life donation."</i>
+		<br>
+		<i>"Give blood save life "</i>
+		<br><br>
+	</div>
+{% endblock %}
